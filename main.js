@@ -20,7 +20,7 @@ var sourcemaps = require('gulp-sourcemaps'),
   uglify = require('gulp-uglify'),
   concat = require('gulp-concat'),
   rename = require('gulp-rename'),
-  less = require('gulp-less'),
+  sass = require('gulp-sass'),
   csso = require('gulp-csso'),
   jshint = require('gulp-jshint'),
   beautify = require('js-beautify'),
@@ -67,7 +67,7 @@ module.exports = function(gulp, options){
   if(options.e2eTests !== undefined) e2eTests = options.e2eTests;
 
   // CSS source code.
-  var cssSrc = './src/**/*.less';
+  var cssSrc = './src/**/*.sass';
   if(options.cssSrc !== undefined) cssSrc = options.cssSrc;
 
   var templates = './src/**/*.html';
@@ -337,12 +337,12 @@ module.exports = function(gulp, options){
     del([buildDir + '/**/*.css{,map}'], cb);
   });
 
-  // Generates a CSS bundle of cssMain and its dependencies using LESS
+  // Generates a CSS bundle of cssMain and its dependencies using SASS
   // in the build directory with an embedded source map.
   gulp.task('css', ['clean-css'], function() {
     return gulp.src(cssMain)
       .pipe(sourcemaps.init())
-      .pipe(less())
+      .pipe(sass().on('error', sass.logError))
       .pipe(rename(name + '.css'))
       .pipe(sourcemaps.write())
       .pipe(gulp.dest(buildDir));
