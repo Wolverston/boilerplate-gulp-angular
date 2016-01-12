@@ -4,7 +4,7 @@
 
 # Capabilities
 * Compiles JavaScript CommonJS modules into a single file ([browserify](http://browserify.org/)) which can be loaded directly in a browser, via CommonJS loader, or a AMD loader. Produces both an unminified version and a minified version with  source maps. Files run through [ng-annotate](https://github.com/olov/ng-annotate) prior to minification.
-* Compiles [LESS](http://lesscss.org/) files into a single CSS file. Produces both an unminified version and a minified version with a source maps.
+* Compiles [SASS](http://sass-lang.com/) files into a single CSS file. Produces both an unminified version and a minified version with a source maps.
 * Run cross-browser unit tests ([jasmine](http://jasmine.github.io/2.0/introduction.html) & [karma](http://karma-runner.github.io/)) using Chrome, Firefox, and Safari.
 * Generates coverage reports ([istanbul](https://github.com/gotwarlost/istanbul)) for unit tests.
 * Run cross-browser e2e tests (jasmine & [protractor](https://github.com/angular/protractor)) using Chrome and Firefox.
@@ -21,7 +21,7 @@
 browsers
 * [jshint](http://www.jshint.com/) - JavaScript linter
 * [uglify](https://github.com/mishoo/UglifyJS2/) - JavaScript minifier
-* [less](http://lesscss.org/) - CSS preprocessor
+* [sass](http://sass-lang.com/) - CSS preprocessor
 * [csso](https://github.com/css/csso) - CSS minifier
 * [recess](http://twitter.github.io/recess/) - CSS linter
 * [jasmine](http://jasmine.github.io/2.0/introduction.html) - JavaScript testing framework
@@ -74,7 +74,7 @@ var gulp = require('gulp'),
 
 angularBuilder(gulp, {
   jsMain: 'path/to/js/main.js',
-  cssMain: 'path/to/css/main.less'
+  cssMain: 'path/to/css/main.scss'
 });
 
 // Rest of your gulp file, potentially overwriting the angular builder tasks...
